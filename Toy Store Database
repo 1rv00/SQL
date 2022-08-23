@@ -1,0 +1,30 @@
+
+-- Create the store database --
+
+CREATE TABLE toys(id INTEGER PRIMARY KEY, name TEXT, Price INTEGER, quantity INTEGER, color TEXT);
+
+-- Add items to the store database --
+
+INSERT INTO toys VALUES (1, "Iron Man", 19.99, 10, "red");
+INSERT INTO toys VALUES (2, "Captain America", 14.99, 5, "blue");
+INSERT INTO toys VALUES (3, "Hulk", 14.99, 6, "green");
+INSERT INTO toys VALUES (4, "Hawkeye", 10.99, 4, "purple");
+INSERT INTO toys VALUES (5, "Black Widow", 19.99, 8, "black");
+INSERT INTO toys VALUES (6, "Scarlet Witch", 18.00, 9, "red");
+INSERT INTO toys VALUES (7, "Quicksilver", 19.99, 4, "silver");
+INSERT INTO toys VALUES (8, "Thor", 14.99, 3, "silver");
+INSERT INTO toys VALUES (9, "Nick Fury", 9.99, 2, "black");
+INSERT INTO toys VALUES (10, "Moonknight", 13.99, 6, "white");
+INSERT INTO toys VALUES (11, "Ms. Marvel", 8.99, 1, "red");
+INSERT INTO toys VALUES (12, "Gamora", 14.99, 7, "green");
+INSERT INTO toys VALUES (13, "Star Lord", 13.99, 8, "brown");
+INSERT INTO toys VALUES (14, "Groot", 18.99, 10, "brown");
+INSERT INTO toys VALUES (15, "Rocket Racoon", 19.99, 3, "brown");
+
+-- Displays all columns in the database and orders everything by price --
+
+SELECT * FROM toys ORDER BY price;
+
+-- Whats the average amount of toys per color? --
+
+SELECT color, AVG(quantity) FROM toys GROUP BY color;
