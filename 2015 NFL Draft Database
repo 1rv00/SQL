@@ -210,19 +210,20 @@ INSERT INTO picks (pick_number, name, college, picked_by, position)
 INSERT INTO picks (pick_number, name, college, picked_by, position)
 	VALUES(99,"Paul Dawson","TCU","Cincinnati","OLB");
 	
-	
-SELECT * FROM picks; /*Shows all picks made and all categories*/
+-- Show all the picks made in the first 3 rounds of the 2015 NFL Draft --
 
-/* How many picks did the Philadelphia Eagles make?*/
+SELECT * FROM picks; 
+
+-- How many picks did the Philadelphia Eagles make? --
 
 SELECT * FROM picks WHERE picked_by IN ("Philadelphia"); 
 
-/* How many picks did each team make? */
+-- How many picks did each team make? --
 
 SELECT picked_by, COUNT(*) FROM picks
     GROUP BY picked_by;
     
-/* Which teams made more then 4 picks?*/
+-- Which teams made more then 4 picks? --
     
 SELECT picked_by, COUNT(*) As picks_made
     FROM picks
@@ -230,7 +231,7 @@ SELECT picked_by, COUNT(*) As picks_made
     HAVING picks_made >= 4
     ORDER BY picks_made DESC;
     
-/* Which teams made 3 picks or less? */
+-- Which teams made 3 picks or less? --
 
 SELECT picked_by, COUNT(*) As picks_made
     FROM picks
@@ -238,7 +239,7 @@ SELECT picked_by, COUNT(*) As picks_made
     HAVING picks_made <= 3
     ORDER BY picks_made ASC;
     
-/* Group the positions by Offensive and Defensive categories */
+-- Group the positions by Offensive and Defensive categories --
 
 SELECT pick_number, picked_by, position,
     CASE
@@ -248,7 +249,7 @@ SELECT pick_number, picked_by, position,
         END as "Player_Type"
         FROM picks;
 
-/* Did a player get selected by Philadelphia and is a WR? */
+-- Did a player get selected by Philadelphia and is a WR? --
 
 SELECT * FROM picks WHERE picked_by = "Philadelphia" AND position = "WR";
 
