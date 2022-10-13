@@ -76,5 +76,6 @@ ON Feb.orderid=Cust.order_id;
 SELECT distinct Product, sum(quantity*price) as Revenue
 FROM BIT_DB.JanSales
 GROUP BY product
-ORDER BY Revenue DESC;
+ORDER BY Revenue DESC
+LIMIT 1;
 
